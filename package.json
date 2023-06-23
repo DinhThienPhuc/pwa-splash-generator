@@ -1,0 +1,19 @@
+{
+  "name": "pwa-splash-generator",
+  "version": "1.0.0",
+  "description": "A splash generator for PWA",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "type": "module",
+  "preferGlobal": true,
+  "bin": {
+    "splash-gen": "./bin/index.js"
+  },
+  "author": "DinhThienPhuc",
+  "license": "MIT",
+  "dependencies": {
+    "sharp": "^0.32.1"
+  }
+}
