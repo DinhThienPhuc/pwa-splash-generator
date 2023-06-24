@@ -47,14 +47,15 @@ const exec = async (url, orientation) => {
     return;
   }
 
-  fs.mkdirSync(`${__currentDir}/splash-screens`);
+  const splashDir = `${__currentDir}/splash-screens`;
+  if (!fs.existsSync(splashDir)) {
+    fs.mkdirSync(splashDir);
+  }
 
   SPLASH_IMAGES.filter((imageConfig) => {
     return imageConfig.orientation === orientation;
   }).forEach(async (imageConfig) => {
     try {
-      let img = image.filename;
-
       const configRatio = imageConfig.width / imageConfig.height;
       const imageRatio = metadata.width / metadata.height;
 
