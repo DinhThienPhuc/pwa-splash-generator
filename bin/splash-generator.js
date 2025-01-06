@@ -1,12 +1,11 @@
 #!/usr/bin/env node
-
-import { MAX_SIZE, SPLASH_IMAGES } from "../utils/constants.js";
-
-import download from "image-downloader";
-import { fileURLToPath } from "url";
 import fs from "fs";
+import download from "image-downloader";
 import path from "path";
 import sharp from "sharp";
+import { fileURLToPath } from "url";
+
+import { MAX_SIZE, SPLASH_IMAGES } from "../utils/constants.js";
 
 const [, , landscapeImageUrl, portraitImageUrl] = process.argv;
 
@@ -22,7 +21,7 @@ const exec = async (url, orientation) => {
   if (!fs.existsSync(url)) {
     image = await download.image({
       url,
-      dest: `${__tempDirname}/${orientation}.png`,
+      dest: `./${__tempDirname}/${orientation}.png`,
     });
   }
 
@@ -33,7 +32,7 @@ const exec = async (url, orientation) => {
     MAX_SIZE[orientation].height > metadata.height
   ) {
     console.warn(
-      `You need to provide a ${orientation} image with width greater than ${MAX_SIZE[orientation].width}px and height greater than ${MAX_SIZE[orientation].height}px`
+      `You need to provide a ${orientation} image with width greater than ${MAX_SIZE[orientation].width}px and height greater than ${MAX_SIZE[orientation].height}px`,
     );
     return;
   }
@@ -63,7 +62,7 @@ const exec = async (url, orientation) => {
       if (imageRatio >= configRatio) {
         option = {
           left: Math.floor(
-            (metadata.width - configRatio * metadata.height) / 2
+            (metadata.width - configRatio * metadata.height) / 2,
           ),
           width: Math.floor(configRatio * metadata.height),
           height: metadata.height,
