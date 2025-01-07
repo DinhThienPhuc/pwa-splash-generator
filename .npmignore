@@ -1,0 +1,9 @@
+# Development files
+tests/
+.eslintrc
+.prettierrc
+.gitignore
+
+# Source control
+.git/
+.github/

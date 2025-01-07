@@ -1,6 +1,6 @@
 {
   "name": "pwa-image-generator",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A simple CLI tool to generate splash screen images for PWA",
   "main": "index.js",
   "type": "module",
@@ -8,10 +8,29 @@
   "bin": {
     "pwa-gen-splash": "./bin/splash-generator.js"
   },
+  "scripts": {
+    "build": "echo 'No build step required'",
+    "prepublishOnly": "chmod +x ./bin/splash-generator.js"
+  },
   "author": "DinhThienPhuc",
   "license": "MIT",
   "dependencies": {
     "image-downloader": "^4.3.0",
     "sharp": "^0.32.1"
-  }
+  },
+  "keywords": [
+    "pwa",
+    "splash-screen",
+    "ios",
+    "android",
+    "image-generator"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DinhThienPhuc/pwa-splash-generator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DinhThienPhuc/pwa-splash-generator/issues"
+  },
+  "homepage": "https://github.com/DinhThienPhuc/pwa-splash-generator/blob/main/README.md"
 }
